@@ -1,0 +1,12 @@
+@import "../../style/_bootstrap";
+
+:host {
+  width: 100%;
+}
+
+.cafe-list-item {
+  color: $gray-dark;
+  &:hover {
+    text-decoration: underline;
+  }
+}
