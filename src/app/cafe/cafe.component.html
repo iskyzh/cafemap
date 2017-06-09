@@ -1,0 +1,10 @@
+<h1 class="p-3"><i class="fa fa-coffee" aria-hidden="true"></i> Café</h1>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item" *ngFor="let cafe of (cafe$ | async)">
+    <span>
+      <span><i class="fa fa-coffee" aria-hidden="true"></i> {{ cafe.name }}</span>  
+      <span *ngIf="cafe.branch"> ({{ cafe.branch }})</span>
+      <small class="text-muted" *ngIf="cafe.secondary_name"> / {{ cafe.secondary_name }}</small>
+    </span>
+  </li>
+</ul>

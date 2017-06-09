@@ -6,12 +6,16 @@ import { Observable, Subject } from 'rxjs';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
-  selector: 'my-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'my-cafe',
+  templateUrl: './cafe.component.html',
+  styleUrls: ['./cafe.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
-  constructor() {
+export class CafeComponent implements OnInit, AfterViewInit {
+
+  private cafe$: FirebaseListObservable<any>;
+
+  constructor(private db: AngularFireDatabase) {
+    this.cafe$ = db.list('/cafe');
   }
 
   ngOnInit() {

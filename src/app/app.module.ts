@@ -5,10 +5,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { CafeComponent } from './cafe/cafe.component';
+import { ExploreComponent } from './explore/explore.component';
+
 import { ApiService } from './shared';
 import { routing } from './app.routing';
 
-import { LoadingComponent } from './components';
+import { LoadingComponent, MapComponent } from './components';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
@@ -34,7 +37,10 @@ import { FIREBASE_CONFIG, MAPS_CONFIG } from './config/service';
   declarations: [
     AppComponent,
     HomeComponent,
-    LoadingComponent
+    LoadingComponent,
+    MapComponent,
+    CafeComponent,
+    ExploreComponent
   ],
   providers: [
     ApiService

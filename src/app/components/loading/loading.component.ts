@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'blue-loading',
+  selector: 'my-loading',
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.scss']
 })

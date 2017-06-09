@@ -1,50 +1,35 @@
-<div class="container-fluid h-100">
-  <div class="row h-100">
-    <div class="col-6 col-sm-4 col-md-3 h-100 p-0 cafe-container">
-      <h1 class="p-3">Café</h1>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item" *ngFor="let cafe of (cafe$ | async)">
-          <span>
-            <span>{{ cafe.name }}</span>  
-            <span *ngIf="cafe.branch"> ({{ cafe.branch }})</span>
-            <small class="text-muted" *ngIf="cafe.secondary_name"> / {{ cafe.secondary_name }}</small>
-          </span>
-        </li>
-      </ul>
+<div class="p-3">
+  <a class="cafe-card-nav card card-inverse card-success mb-3 text-center" routerLink="/explore">
+    <div class="card-block d-flex flex-column justify-content-center">
+      <blockquote class="card-blockquote h1">
+        探索
+      </blockquote>
+      <p class="small my-1">根据你的喜好，找到适合你的咖啡馆。</p>
     </div>
-    <div class="col h-100 p-0">
-      <sebm-google-map 
-        class="cafe-map"
-        [latitude]="lat"
-        [longitude]="lng"
-        [zoom]="zoom"
-        [disableDefaultUI]="false"
-        [zoomControl]="false"
-        (mapClick)="mapClicked($event)">
-
-        <sebm-google-map-marker 
-            *ngFor="let m of markers; let i = index"
-            (markerClick)="clickedMarker(m.label, i)"
-            [latitude]="m.lat"
-            [longitude]="m.lng"
-            [label]="m.label"
-            [markerDraggable]="m.draggable"
-            (dragEnd)="markerDragEnd(m, $event)">
-            
-          <sebm-google-map-info-window>
-            <strong>InfoWindow content</strong>
-          </sebm-google-map-info-window>
-          
-        </sebm-google-map-marker>
-        
-        <sebm-google-map-circle [latitude]="lat + 0.3" [longitude]="lng" 
-            [radius]="5000"
-            [fillColor]="'red'"
-            [circleDraggable]="true"
-            [editable]="true">
-        </sebm-google-map-circle>
-
-      </sebm-google-map>
+  </a>
+  <a class="cafe-card-nav card card-inverse card-info mb-3 text-center" routerLink="/cafe">
+    <div class="card-block d-flex flex-column justify-content-center">
+      <blockquote class="card-blockquote h1">
+        浏览
+      </blockquote>
+      <p class="small my-1">浏览由迟迟精心挑选的所有上海咖啡馆。</p>
+    </div>
+  </a>
+  <div class="card mb-3">
+    <div class="card-block">
+      <h4 class="card-title">Café <i class="fa fa-map" aria-hidden="true"></i></h4>
+      <h6 class="card-subtitle mb-2 text-muted"><em>by 迟遲的星星球</em></h6>
+      <p class="card-text">我是一名上海的高中生。为了体验更好的刷题环境，我在周末和假期探访上海的咖啡馆。并在 CaféMap 中展示出来。</p>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <div class="card-block">
+      <h4 class="card-title">更多</h4>
+      <ul class="card-text list-unstyled">
+        <li><a href="https://twitter.com/iSkyZH"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i> @iSkyZH</a></li>
+        <li><a href="https://github.com/SkyZH"><i class="fa fa-fw fa-github" aria-hidden="true"></i> @SkyZH</a></li>
+        <li><a href="https://github.com/SkyZH/CafeMap"><i class="fa fa-fw fa-github" aria-hidden="true"></i> SkyZH/CafeMap</a></li>
+      </ul>
     </div>
   </div>
 </div>

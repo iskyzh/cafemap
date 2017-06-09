@@ -2,13 +2,22 @@
 </header>
 
 <main>
-  <router-outlet></router-outlet>
+  <div class="container-fluid h-100 cafe-wrapper">
+    <div class="row h-100">
+      <div class="col-6 col-sm-4 col-md-3 h-100 p-0 cafe-container">
+        <router-outlet></router-outlet>
+      </div>
+      <my-map class="col h-100 p-0"></my-map>
+    </div>
+  </div>
 </main>
+
 <div class="cafe-loading-overlay d-flex flex-column justify-content-center align-items-center" *ngIf="!ready">
   <h1 class="display-3">Café <i class="fa fa-map-o" aria-hidden="true"></i></h1>
-  <p><em>by SkyZH</em></p>
-  <p><i class="fa fa-circle-o-notch fa-spin fa-fw"></i> 正在连接数据库……</p>
+  <p><em>by 迟遲的星星球</em></p>
+  <p><i class="fa fa-circle-o-notch fa-spin fa-fw"></i> 连接数据库……</p>
 </div>
+
 <footer class="my-3">
 </footer>
 
