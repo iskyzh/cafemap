@@ -10,7 +10,7 @@ interface marker {
 };
 
 @Component({
-  selector: 'my-map',
+  selector: 'cafe-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
