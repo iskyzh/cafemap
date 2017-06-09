@@ -1,0 +1,14 @@
+<header>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+<div class="cafe-loading-overlay d-flex flex-column justify-content-center align-items-center" *ngIf="!ready">
+  <h1 class="display-3">Café <i class="fa fa-map-o" aria-hidden="true"></i></h1>
+  <p><em>by SkyZH</em></p>
+  <p><i class="fa fa-circle-o-notch fa-spin fa-fw"></i> 正在连接数据库……</p>
+</div>
+<footer class="my-3">
+</footer>
+
