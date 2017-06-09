@@ -9,6 +9,9 @@
 .cafe-container {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.02);
   z-index: 100;
+}
+
+.cafe-container-scroll {
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
