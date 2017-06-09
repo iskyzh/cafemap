@@ -1,6 +1,6 @@
 import * as moment from 'moment';
 import * as _ from 'lodash';
-
+import { RouteAnimation } from '../const/routeanimation';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -8,7 +8,11 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Component({
   selector: 'my-explore',
   templateUrl: './explore.component.html',
-  styleUrls: ['./explore.component.scss']
+  styleUrls: ['./explore.component.scss'],
+  host: {
+    '[@routeAnimation]': 'true'
+   },
+  animations: [ RouteAnimation ]
 })
 export class ExploreComponent implements OnInit, AfterViewInit {
 
