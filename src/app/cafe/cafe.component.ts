@@ -4,6 +4,7 @@ import { RouteAnimation } from '../const/routeanimation';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { ApiService, Marker } from '../shared';
 
 @Component({
   selector: 'my-cafe',
@@ -17,7 +18,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 export class CafeComponent implements OnInit, AfterViewInit {
 
   private cafe$: FirebaseListObservable<any>;
-  constructor(private db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase, private api: ApiService) {
     this.cafe$ = db.list('/cafe');
   }
 
@@ -25,5 +26,6 @@ export class CafeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    this.cafe$.first().subscribe(cafes => this.api.markers.next(_.map(cafes, c => <Marker>c['maps'])))
   }
 }

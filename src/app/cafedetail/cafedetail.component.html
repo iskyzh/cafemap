@@ -1,0 +1,10 @@
+<div class="p-3 d-flex flex-row align-items-center">
+  <h1><a routerLink="/cafe"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></h1>
+  <div class="h4 mx-1">
+    <span>{{ (cafe$ | async)?.name }}</span>
+    <small class="text-muted" *ngIf="(cafe$ | async)?.secondary_name"> / {{ (cafe$ | async)?.secondary_name }}</small>
+    <br>
+    <small *ngIf="(cafe$ | async)?.branch">({{ (cafe$ | async)?.branch }})</small>
+  </div>
+</div>
+<cafe-loading class="p-3 mb-3" text="正在获取最新数据……" *ngIf="!(cafe$ | async)"></cafe-loading>

@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CafeComponent } from './cafe/cafe.component';
+import { CafeDetailComponent } from './cafedetail/cafedetail.component';
 import { ExploreComponent } from './explore/explore.component';
 
 import { ApiService } from './shared';
@@ -42,6 +43,7 @@ import { FIREBASE_CONFIG, MAPS_CONFIG } from './config/service';
     LoadingComponent,
     MapComponent,
     CafeComponent,
+    CafeDetailComponent,
     ExploreComponent
   ],
   providers: [
