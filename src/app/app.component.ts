@@ -14,10 +14,8 @@ import '../style/app.scss';
 export class AppComponent {
   private connected$: FirebaseObjectObservable<any>;
   private ready:boolean = false;
-  private markers: Subject<Array<Marker>>;
   constructor(private api: ApiService, private db: AngularFireDatabase) {
     this.connected$ = db.object('/.info/connected');
     this.connected$.subscribe(d => this.ready = this.ready || d.$value);
-    this.markers = api.markers;
   }
 }

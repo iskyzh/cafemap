@@ -1,10 +1,11 @@
 <sebm-google-map 
   class="w-100 h-100 p-100"
-  [latitude]="lat"
-  [longitude]="lng"
-  [zoom]="zoom"
+  [latitude]="_lat"
+  [longitude]="_lng"
+  [zoom]="_zoom"
   [disableDefaultUI]="false"
-  [zoomControl]="false"
+  [zoomControl]="true"
+  [usePanning]="true"
   (mapClick)="mapClicked($event)">
   
   <sebm-google-map-marker 

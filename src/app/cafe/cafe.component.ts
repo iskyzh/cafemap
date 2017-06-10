@@ -5,6 +5,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { ApiService, Marker } from '../shared';
+import { MAP_DEFAULT } from '../const/map';
 
 @Component({
   selector: 'my-cafe',
@@ -27,5 +28,7 @@ export class CafeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.cafe$.first().subscribe(cafes => this.api.markers.next(_.map(cafes, c => <Marker>c['maps'])))
+    this.api.location.next(<Marker>{ lat: MAP_DEFAULT.lat, lng: MAP_DEFAULT.lng });
+    this.api.zoom.next(MAP_DEFAULT.zoom);
   }
 }

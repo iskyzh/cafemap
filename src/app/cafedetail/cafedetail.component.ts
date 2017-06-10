@@ -26,10 +26,14 @@ export class CafeDetailComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.cafe$ = this.route.params
-      .switchMap((params: Params) => this.cafe$ = this.db.object(`/cafe/${params['id']}`))
+      .switchMap((params: Params) => this.cafe$ = this.db.object(`/cafe/${params['id']}`));
   }
 
   ngAfterViewInit() {
-    this.cafe$.first().subscribe(cafe => this.api.markers.next([<Marker>cafe['maps']]))
+    this.cafe$.first().subscribe(cafe => {
+      this.api.markers.next([<Marker>cafe['maps']]);
+      this.api.location.next(<Marker>cafe['maps']);
+      this.api.zoom.next(20);
+    });
   }
 }
