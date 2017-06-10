@@ -1,8 +1,8 @@
 <sebm-google-map 
   class="w-100 h-100 p-100"
-  [latitude]="_lat"
-  [longitude]="_lng"
-  [zoom]="_zoom"
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
   [disableDefaultUI]="false"
   [zoomControl]="true"
   [usePanning]="true"
@@ -17,10 +17,5 @@
       [markerDraggable]="m.draggable"
       (dragEnd)="markerDragEnd(m, $event)"
       iconUrl="/img/coffee.png">
-      
-    <sebm-google-map-info-window>
-      <strong>InfoWindow content</strong>
-    </sebm-google-map-info-window>
-    
   </sebm-google-map-marker>
 </sebm-google-map>

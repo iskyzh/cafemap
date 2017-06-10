@@ -3,3 +3,18 @@
 :host {
   width: 100%;
 }
+
+.cafe-text-wrap {
+  white-space: pre-wrap;
+}
+
+.cafe-borderless {
+  li {
+    &:not(:first-child) {
+      border-top: 0 none;
+    }
+    &:not(:last-child) {
+      border-bottom: 0 none;
+    }
+  }
+}

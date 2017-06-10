@@ -1,9 +1,11 @@
 import * as moment from 'moment';
 import * as _ from 'lodash';
 import { RouteAnimation } from '../const/routeanimation';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { ApiService, Marker } from '../shared';
+import { MAP_DEFAULT } from '../const/map';
 
 @Component({
   selector: 'my-home',
@@ -14,13 +16,14 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   },
   animations: [ RouteAnimation ]
 })
-export class HomeComponent implements OnInit, AfterViewInit {
-  constructor() {
+export class HomeComponent implements AfterContentInit {
+  
+  constructor(private api: ApiService) {
   }
 
-  ngOnInit() {
-  }
-
-  ngAfterViewInit() {
+  ngAfterContentInit() {
+    this.api.location.next(<Marker>{ lat: MAP_DEFAULT.lat, lng: MAP_DEFAULT.lng });
+    this.api.zoom.next(MAP_DEFAULT.zoom);
+    this.api.markers.next([]);
   }
 }

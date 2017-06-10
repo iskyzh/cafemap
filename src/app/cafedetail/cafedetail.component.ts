@@ -1,7 +1,7 @@
 import * as moment from 'moment';
 import * as _ from 'lodash';
 import { RouteAnimation } from '../const/routeanimation';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -16,7 +16,7 @@ import { ApiService, Marker } from '../shared';
    },
   animations: [ RouteAnimation ]
 })
-export class CafeDetailComponent implements OnInit, AfterViewInit {
+export class CafeDetailComponent implements OnInit, AfterContentInit {
 
   private cafe$: Observable<any>;
 
@@ -28,8 +28,8 @@ export class CafeDetailComponent implements OnInit, AfterViewInit {
     this.cafe$ = this.route.params
       .switchMap((params: Params) => this.cafe$ = this.db.object(`/cafe/${params['id']}`));
   }
-
-  ngAfterViewInit() {
+  
+  ngAfterContentInit() {
     this.cafe$.first().subscribe(cafe => {
       this.api.markers.next([<Marker>cafe['maps']]);
       this.api.location.next(<Marker>cafe['maps']);

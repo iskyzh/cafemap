@@ -8,3 +8,75 @@
   </div>
 </div>
 <cafe-loading class="p-3 mb-3" text="正在获取最新数据……" *ngIf="!(cafe$ | async)"></cafe-loading>
+<ul class="list-group list-group-flush cafe-borderless">
+  <li class="list-group-item" *ngIf="(cafe$ | async)?.skyzh?.introduction" [innerHTML]="(cafe$ | async).skyzh.introduction"></li>
+  <li class="list-group-item" *ngIf="(cafe$ | async)?.skyzh?.medium">
+    <span><i class="fa fa-fw fa-medium" aria-hidden="true"></i> <a [href]="(cafe$ | async)?.skyzh?.medium">在 Medium 上阅读「迟遲的堕落人生」</a></span>
+  </li>
+  <li class="list-group-item" *ngIf="(cafe$ | async)?.skyzh?.photos">
+    <span><i class="fa fa-fw fa-photo" aria-hidden="true"></i> <a [href]="(cafe$ | async)?.skyzh?.photos">在 Google Photos 上查看相册</a></span>
+  </li>
+</ul>
+<ul class="list-group list-group-flush cafe-borderless">
+  <li class="list-group-item" *ngIf="(cafe$ | async)?.address">
+    <span><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i></span>
+    <span class="mx-1">{{ (cafe$ | async)?.address }}</span>
+  </li>
+  <li class="list-group-item" *ngIf="(cafe$ | async)?.businesshours">
+    <span><i class="fa fa-fw fa-clock-o" aria-hidden="true"></i> </span>
+    <span class="mx-1 cafe-text-wrap">{{ (cafe$ | async)?.businesshours }}</span>
+  </li>
+  <li class="list-group-item" *ngIf="(cafe$ | async)?.arrival">
+    <span><i class="fa fa-fw fa-user-circle" aria-hidden="true"></i> </span>
+    <span class="mx-1 cafe-text-wrap">{{ (cafe$ | async)?.arrival }}</span>
+  </li>
+</ul>
+<ul class="list-group list-group-flush cafe-borderless">
+  <li class="list-group-item" *ngIf="(cafe$ | async)?.social?.gmaps">
+    <span><i class="fa fa-fw fa-map" aria-hidden="true"></i></span>
+    <span class="mx-1">
+      <a [href]="(cafe$ | async)?.social?.gmaps">在 Google Maps 上查阅地图</a>
+    </span>
+  </li>
+  <li class="list-group-item" *ngIf="(cafe$ | async)?.social?.applemaps">
+    <span><i class="fa fa-fw fa-localtion-arrow" aria-hidden="true"></i></span>
+    <span class="mx-1">
+      <a [href]="(cafe$ | async)?.social?.applemaps">在 Apple Maps 上查阅地图</a>
+    </span>
+  </li>
+  <li class="list-group-item" *ngIf="(cafe$ | async)?.social?.gaode">
+    <span><i class="fa fa-fw fa-paper-plane" aria-hidden="true"></i></span>
+    <span class="mx-1">
+      <a [href]="(cafe$ | async)?.social?.gaode">在高德地图上查阅地图</a>
+    </span>
+  </li>
+</ul>
+<ul class="list-group list-group-flush cafe-borderless">
+  <li class="list-group-item" *ngIf="(cafe$ | async)?.social?.wechat?.name">
+    <span><i class="fa fa-fw fa-wechat" aria-hidden="true"></i></span>
+    <span class="mx-1">
+      <span>{{ (cafe$ | async)?.social?.wechat?.name }}</span>
+      <span class="small" *ngIf="(cafe$ | async)?.social?.wechat?.id">({{ (cafe$ | async)?.social?.wechat?.id }})</span>
+      <span class="text-success" *ngIf="(cafe$ | async)?.social?.wechat?.verified"><i class="fa fa-check" aria-hidden="true"></i></span>
+      <span class="text-warning" *ngIf="!(cafe$ | async)?.social?.wechat?.verified">未验证</span>
+    </span>
+  </li>
+  <li class="list-group-item" *ngIf="(cafe$ | async)?.social?.weibo?.name">
+    <span><i class="fa fa-fw fa-weibo" aria-hidden="true"></i></span>
+    <span class="mx-1">
+      <a [href]="(cafe$ | async)?.social?.weibo?.url">{{ (cafe$ | async)?.social?.weibo?.name }}</a>
+    </span>
+  </li>
+  <li class="list-group-item" *ngIf="(cafe$ | async)?.social?.website">
+    <span><i class="fa fa-fw fa-globe" aria-hidden="true"></i></span>
+    <span class="mx-1">
+      <a [href]="(cafe$ | async)?.social?.website">访问官方网站</a>
+    </span>
+  </li>
+  <li class="list-group-item" *ngIf="(cafe$ | async)?.social?.dianping">
+    <span><i class="fa fa-fw fa-comment" aria-hidden="true"></i></span>
+    <span class="mx-1">
+      <a [href]="(cafe$ | async)?.social?.dianping">在大众点评上查看商家</a>
+    </span>
+  </li>
+</ul>

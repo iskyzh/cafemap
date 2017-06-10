@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, AfterContentInit } from '@angular/core';
 import { ApiService } from './shared';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { Subject } from 'rxjs';
