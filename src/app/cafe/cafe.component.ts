@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 import { RouteAnimation } from '../const/routeanimation';
 import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { ApiService, Marker } from '../shared';
 import { MAP_DEFAULT } from '../const/map';
 
@@ -19,8 +19,13 @@ import { MAP_DEFAULT } from '../const/map';
 export class CafeComponent implements OnInit, AfterContentInit {
 
   private cafe$: FirebaseListObservable<any>;
+  private cafe_count$: Observable<number>;
+  private lstUpdate$: FirebaseObjectObservable<any>;
+
   constructor(private db: AngularFireDatabase, private api: ApiService) {
     this.cafe$ = db.list('/cafe');
+    this.cafe_count$ = this.cafe$.map(d => d.length);
+    this.lstUpdate$ = db.object('/info/lastUpdate');
   }
 
   ngOnInit() {
