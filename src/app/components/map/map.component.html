@@ -10,12 +10,12 @@
   
   <sebm-google-map-marker 
       *ngFor="let m of markers; let i = index"
-      (markerClick)="clickedMarker(m.label, i)"
+      (markerClick)="clickedMarker(m.id, i)"
       [latitude]="m.lat"
       [longitude]="m.lng"
       [label]="m.label"
       [markerDraggable]="m.draggable"
       (dragEnd)="markerDragEnd(m, $event)"
-      iconUrl="/img/coffee.png">
+      [iconUrl]="m.recommend ? '/img/coffee-recommend.png' : '/img/coffee.png'">
   </sebm-google-map-marker>
 </sebm-google-map>

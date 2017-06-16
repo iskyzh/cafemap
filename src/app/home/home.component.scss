@@ -13,6 +13,11 @@
   }
 }
 
+.cafe-card-disabled {
+  -webkit-filter: grayscale(80%);
+  filter: grayscale(80%);
+}
+
 .cafe-bg-1 {
   background-image: url(/img/bgg.svg);
   background-size: 100%;

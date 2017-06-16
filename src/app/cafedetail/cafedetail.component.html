@@ -8,10 +8,14 @@
   </div>
 </div>
 <cafe-loading class="p-3 mb-3" text="正在获取最新数据……" *ngIf="!(cafe$ | async)"></cafe-loading>
-<ul class="list-group list-group-flush cafe-detail-list">
+<ul class="list-group list-group-flush cafe-detail-list" *ngIf="cafe$ | async">
   <li class="list-group-item" *ngIf="(cafe$ | async) && !(cafe$ | async)?.available">
     <span class="text-warning"><i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i> 该门店已歇业</span>
   </li>
+  <li class="list-group-item" *ngIf="(cafe$ | async)?.recommend">
+    <span class="text-success"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i> 迟迟觉得这家咖啡馆很棒棒</span>
+  </li>
+  
   <li class="list-group-item" *ngIf="(cafe$ | async)?.skyzh?.introduction" [innerHTML]="(cafe$ | async).skyzh.introduction"></li>
   <li class="list-group-item" *ngIf="(cafe$ | async)?.skyzh?.medium">
     <span><i class="fa fa-fw fa-medium" aria-hidden="true"></i> <a [href]="(cafe$ | async)?.skyzh?.medium" target="_blank">在 Medium 上阅读「迟遲的堕落人生」<i class="fa fa-external-link" aria-hidden="true"></i></a></span>
