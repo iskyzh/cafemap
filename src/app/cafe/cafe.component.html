@@ -1,8 +1,12 @@
 <h1 class="p-3"><a routerLink="/"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a> <i class="fa fa-coffee" aria-hidden="true"></i> 浏览</h1>
 <cafe-loading class="p-3 mb-3" text="正在获取最新数据……" *ngIf="!(cafe$ | async)"></cafe-loading>
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">共 {{ cafe_count$ | async }} 个咖啡馆</li>
-  <li class="list-group-item">于{{ (lstUpdate$ | async)?.$value | amDateFormat: "LL" }}更新</li>
+  <li class="list-group-item">
+    <ul class="list-unstyled text-muted">
+      <li>共 {{ cafe_count$ | async }} 个咖啡馆</li>
+      <li>咖啡馆数据于{{ (lstUpdate$ | async)?.$value | amDateFormat: "LL" }}更新</li>
+    </ul>
+  </li>
   <a class="cafe-list-item list-group-item" *ngFor="let cafe of (cafe$ | async)" [routerLink]="'/cafe/' + cafe.$key">
     <span>
       <span><i class="fa fa-coffee" aria-hidden="true"></i> {{ cafe.name }}</span>  

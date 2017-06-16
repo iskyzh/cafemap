@@ -8,13 +8,14 @@
   white-space: pre-wrap;
 }
 
-.cafe-borderless {
+.cafe-detail-list {
   li {
     &:not(:first-child) {
       border-top: 0 none;
     }
-    &:not(:last-child) {
-      border-bottom: 0 none;
-    }
+    border-bottom: 0 none;
+  }
+  a {
+    color: $gray-dark;
   }
 }

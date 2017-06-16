@@ -4,10 +4,10 @@
 <main>
   <div class="container-fluid h-100 cafe-wrapper">
     <div class="row h-100">
-      <div class="col-6 col-lg-4 col-xl-3 h-100 p-0 cafe-container cafe-container-scroll">
+      <div class="col-12 col-sm-6 col-lg-4 col-xl-3 h-100 p-0 cafe-container cafe-container-scroll">
         <router-outlet></router-outlet>
       </div>
-      <cafe-map class="col h-100 p-0"
+      <cafe-map class="col h-100 p-0 hidden-xs-down"
         [markers]="api.markers | async"
         [lat]="(api.location | async)?.lat"
         [lng]="(api.location | async)?.lng"

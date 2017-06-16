@@ -8,19 +8,19 @@
   </div>
 </div>
 <cafe-loading class="p-3 mb-3" text="正在获取最新数据……" *ngIf="!(cafe$ | async)"></cafe-loading>
-<ul class="list-group list-group-flush cafe-borderless">
+<ul class="list-group list-group-flush cafe-detail-list">
   <li class="list-group-item" *ngIf="(cafe$ | async) && !(cafe$ | async)?.available">
     <span class="text-warning"><i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i> 该门店已歇业</span>
   </li>
   <li class="list-group-item" *ngIf="(cafe$ | async)?.skyzh?.introduction" [innerHTML]="(cafe$ | async).skyzh.introduction"></li>
   <li class="list-group-item" *ngIf="(cafe$ | async)?.skyzh?.medium">
-    <span><i class="fa fa-fw fa-medium" aria-hidden="true"></i> <a [href]="(cafe$ | async)?.skyzh?.medium">在 Medium 上阅读「迟遲的堕落人生」</a></span>
+    <span><i class="fa fa-fw fa-medium" aria-hidden="true"></i> <a [href]="(cafe$ | async)?.skyzh?.medium" target="_blank">在 Medium 上阅读「迟遲的堕落人生」<i class="fa fa-external-link" aria-hidden="true"></i></a></span>
   </li>
   <li class="list-group-item" *ngIf="(cafe$ | async)?.skyzh?.photos">
-    <span><i class="fa fa-fw fa-photo" aria-hidden="true"></i> <a [href]="(cafe$ | async)?.skyzh?.photos">在 Google Photos 上查看相册</a></span>
+    <span><i class="fa fa-fw fa-photo" aria-hidden="true"></i> <a [href]="(cafe$ | async)?.skyzh?.photos" target="_blank">在 Google Photos 上查看相册 <i class="fa fa-external-link" aria-hidden="true"></i></a></span>
   </li>
 </ul>
-<ul class="list-group list-group-flush cafe-borderless">
+<ul class="list-group list-group-flush cafe-detail-list">
   <li class="list-group-item flex-nowrap" *ngIf="(cafe$ | async)?.address">
     <span><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i></span>
     <span class="mx-1">{{ (cafe$ | async)?.address }}</span>
@@ -34,27 +34,27 @@
     <span class="mx-1 cafe-text-wrap">{{ (cafe$ | async)?.arrival }}</span>
   </li>
 </ul>
-<ul class="list-group list-group-flush cafe-borderless">
+<ul class="list-group list-group-flush cafe-detail-list">
   <li class="list-group-item flex-nowrap" *ngIf="(cafe$ | async)?.social?.gmaps">
     <span><i class="fa fa-fw fa-map" aria-hidden="true"></i></span>
     <span class="mx-1">
-      <a [href]="(cafe$ | async)?.social?.gmaps">在 Google Maps 上查阅地图</a>
+      <a [href]="(cafe$ | async)?.social?.gmaps" target="_blank">在 Google Maps 上查阅地图 <i class="fa fa-external-link" aria-hidden="true"></i></a>
     </span>
   </li>
   <li class="list-group-item flex-nowrap" *ngIf="(cafe$ | async)?.social?.applemaps">
-    <span><i class="fa fa-fw fa-localtion-arrow" aria-hidden="true"></i></span>
+    <span><i class="fa fa-fw fa-location-arrow" aria-hidden="true"></i></span>
     <span class="mx-1">
-      <a [href]="(cafe$ | async)?.social?.applemaps">在 Apple Maps 上查阅地图</a>
+      <a [href]="(cafe$ | async)?.social?.applemaps" target="_blank">在 Apple Maps 上查阅地图 <i class="fa fa-external-link" aria-hidden="true"></i></a>
     </span>
   </li>
   <li class="list-group-item flex-nowrap" *ngIf="(cafe$ | async)?.social?.gaode">
     <span><i class="fa fa-fw fa-paper-plane" aria-hidden="true"></i></span>
     <span class="mx-1">
-      <a [href]="(cafe$ | async)?.social?.gaode">在高德地图上查阅地图</a>
+      <a [href]="(cafe$ | async)?.social?.gaode" target="_blank">在高德地图上查阅地图 <i class="fa fa-external-link" aria-hidden="true"></i></a>
     </span>
   </li>
 </ul>
-<ul class="list-group list-group-flush cafe-borderless">
+<ul class="list-group list-group-flush cafe-detail-list">
   <li class="list-group-item flex-nowrap" *ngIf="(cafe$ | async)?.social?.wechat?.name">
     <span><i class="fa fa-fw fa-wechat" aria-hidden="true"></i></span>
     <span class="mx-1">
@@ -67,25 +67,25 @@
   <li class="list-group-item flex-nowrap" *ngIf="(cafe$ | async)?.social?.weibo?.name">
     <span><i class="fa fa-fw fa-weibo" aria-hidden="true"></i></span>
     <span class="mx-1">
-      <a [href]="(cafe$ | async)?.social?.weibo?.url">{{ (cafe$ | async)?.social?.weibo?.name }}</a>
+      <a [href]="(cafe$ | async)?.social?.weibo?.url" target="_blank">{{ (cafe$ | async)?.social?.weibo?.name }} <i class="fa fa-external-link" aria-hidden="true"></i></a>
     </span>
   </li>
   <li class="list-group-item flex-nowrap" *ngIf="(cafe$ | async)?.social?.website">
     <span><i class="fa fa-fw fa-globe" aria-hidden="true"></i></span>
     <span class="mx-1">
-      <a [href]="(cafe$ | async)?.social?.website">访问官方网站</a>
+      <a [href]="(cafe$ | async)?.social?.website" target="_blank">访问官方网站 <i class="fa fa-external-link" aria-hidden="true"></i></a>
     </span>
   </li>
   <li class="list-group-item flex-nowrap" *ngIf="(cafe$ | async)?.social?.dianping">
     <span><i class="fa fa-fw fa-comment" aria-hidden="true"></i></span>
     <span class="mx-1">
-      <a [href]="(cafe$ | async)?.social?.dianping">在大众点评上查看商家</a>
+      <a [href]="(cafe$ | async)?.social?.dianping" target="_blank">在大众点评上查看商家 <i class="fa fa-external-link" aria-hidden="true"></i></a>
     </span>
   </li>
   <li class="list-group-item flex-nowrap" *ngIf="(cafe$ | async)?.social?.taobao">
     <span><i class="fa fa-fw fa-shopping-cart" aria-hidden="true"></i></span>
     <span class="mx-1">
-      <a [href]="(cafe$ | async)?.social?.taobao">访问淘宝 / 天猫旗舰店</a>
+      <a [href]="(cafe$ | async)?.social?.taobao" target="_blank">访问淘宝 / 天猫旗舰店 <i class="fa fa-external-link" aria-hidden="true"></i></a>
     </span>
   </li>
 </ul>
