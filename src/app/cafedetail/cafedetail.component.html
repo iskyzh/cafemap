@@ -13,7 +13,7 @@
     <span class="text-warning"><i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i> 该门店已歇业</span>
   </li>
   <li class="list-group-item" *ngIf="(cafe$ | async)?.recommend">
-    <span class="text-success"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i> 迟迟觉得这家咖啡馆很棒棒</span>
+    <span class="text-danger"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i> 迟迟觉得这家咖啡馆很棒棒</span>
   </li>
   
   <li class="list-group-item" *ngIf="(cafe$ | async)?.skyzh?.introduction" [innerHTML]="(cafe$ | async).skyzh.introduction"></li>

@@ -12,6 +12,7 @@
       <span><i class="fa fa-coffee" aria-hidden="true"></i> {{ cafe.name }}</span>  
       <span *ngIf="cafe.branch"> ({{ cafe.branch }})</span>
       <small class="text-muted" *ngIf="cafe.secondary_name"> / {{ cafe.secondary_name }}</small>
+      <span class="text-danger" *ngIf="cafe.recommend"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i></span>
     </span>
   </a>
 </ul>
