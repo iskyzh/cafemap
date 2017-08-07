@@ -17,6 +17,7 @@ import { MAP_DEFAULT } from '../const/map';
   animations: [ RouteAnimation ]
 })
 export class HomeComponent implements AfterContentInit {
+  private __version: string = process.env.VERSION;
   
   constructor(private api: ApiService) {
   }

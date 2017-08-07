@@ -3,8 +3,8 @@
 <ul class="list-group list-group-flush">
   <li class="list-group-item">
     <ul class="list-unstyled text-muted">
-      <li>共 {{ cafe_count$ | async }} 个咖啡馆</li>
-      <li>咖啡馆数据于{{ (lstUpdate$ | async)?.$value | amDateFormat: "LL" }}更新</li>
+      <li>收录了 {{ cafe_count$ | async }} 个条目</li>
+      <li>数据于{{ (lstUpdate$ | async)?.$value | amDateFormat: "LL" }}更新</li>
     </ul>
   </li>
   <a class="cafe-list-item list-group-item" *ngFor="let cafe of (cafe$ | async)" [routerLink]="'/cafe/' + cafe.$key">
