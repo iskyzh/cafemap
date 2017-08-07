@@ -1,0 +1,20 @@
+language: node_js
+script: npm run build
+node_js:
+- '7'
+before_script:
+- npm install -g node-gyp
+- cd functions && npm i && cd ..
+cache:
+  directories:
+  - node_modules
+  - functions/node_modules
+branches:
+  only:
+  - master
+deploy:
+  provider: firebase
+  token:
+    secure: YwsmrhQr651KSj7hV5Co0FH84JEfFtTkIvdAp0rIIO3jqBfFbh4v8cFN/+JMmVrI45+cgU4hcG+0BxW1blnojux36Iz6SdTyRFP09dpKv1uh743y1dbrLFnMP5BP0gMZRki4gB/CNnMsguXbbcCcQPU+Ea2QYvUbc8LmuUX6nOGWueVIkrlqYZcbduRA9MJgcW9zXs82pNTTWllNH9+fO7r9jeGyHkeZiC6umwAKOdMdfXUUrb7Xwiwda9gLoSw7mb9o6aRclWgzV4UvvVH9dxt54kx2qHVn9ErtEyWSjQYIbq8JpjWep9DTBdm1W5xwiMhetk6Fiub7TLI/WN+Dd+OrwYQLSwmaGon+ghfHFBU45c2MgaAZwwKqqqlWSs6GVgyqXrnpveSchuyUDiFBXD04+TUkWzwYndNp9bCxzimxDTvvfYwt9gwWyY8+Oa2NgE4modMbgrgEKa5YiYBgVAGxuIh5LP4O85/dgvIu6bavAJvS2FSMgufq+nnIazNWnd+dadc4RmYvANNfgVWxjdwyHZaFrDsqRCYFbWxP/Cr43z/l3sOy55tag1WhvR4OZrJXyWU65tvHCfOt4GP0CDTyfUAu+pRbCNqgOxzDQPpZqYnrRdVt1znkgsNizawmxn0llW5XVZjvnR3mff/T85maTSEh7lfyevJ3gKEfYyI=
+  message: Deployed by Travis CI
+  skip_cleanup: true

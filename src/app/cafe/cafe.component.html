@@ -9,7 +9,11 @@
   </li>
   <a class="cafe-list-item list-group-item" *ngFor="let cafe of (cafe$ | async)" [routerLink]="'/cafe/' + cafe.$key">
     <span>
-      <span><i class="fa fa-coffee" aria-hidden="true"></i> {{ cafe.name }}</span>  
+      <span>
+        <i class="fa fa-coffee" aria-hidden="true" *ngIf="cafe.type == 'cafe'"></i>
+        <i class="fa fa-book" aria-hidden="true" *ngIf="cafe.type == 'library'"></i>
+        {{ cafe.name }}
+      </span>  
       <span *ngIf="cafe.branch"> ({{ cafe.branch }})</span>
       <small class="text-muted" *ngIf="cafe.secondary_name"> / {{ cafe.secondary_name }}</small>
       <span class="text-danger" *ngIf="cafe.recommend"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i></span>
