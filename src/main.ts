@@ -8,7 +8,7 @@ if (process.env.ENV === 'build') {
 }
 
 export function main() {
-  return platformBrowserDynamic().bootstrapModule(AppModule);
+  // return platformBrowserDynamic().bootstrapModule(AppModule);
 }
 
 if (document.readyState === 'complete') {
